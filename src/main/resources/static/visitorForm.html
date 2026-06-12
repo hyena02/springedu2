@@ -9,14 +9,16 @@
     <link rel="stylesheet" href="css/visitor.css">
 </head>
 <body>
-    <h2>글 남겨주ㅓ</h2>
+    <h2 class="tit">글 남겨줘</h2>
     <hr>
-    <form action="/vinsert" method="post">
-        <input type="text" name="name" placeholder="이름을 입력하세요" required/><br />
-        <textarea name="memo" rows="10" cols="35" placeholder="내용을 입력하세요" required></textarea><br />
-        <input type="submit" value="등록" />
-        <input type="reset" value="재작성" />
-        <input type="button" value="취소" onclick="location.href='visitorMain.html'" />
+    <form class="frm" action="/vinsert" method="post">
+        <input class="inp" type="text" name="name" placeholder="이름을 입력하세요" required /><br>
+        <textarea class="txt" name="memo" rows="10" cols="35"
+                  placeholder="내용을 입력하세요" required></textarea><br>
+        <input class="btn" type="submit" value="등록">
+        <input class="btn" type="reset" value="재작성">
+        <input class="btn" type="button" value="취소"
+               onclick="location.href='visitorMain.html'">
     </form>
 </body>
 </html>

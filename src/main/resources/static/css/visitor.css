@@ -1,22 +1,104 @@
 @charset "UTF-8";
+
 @font-face {
-    font-family: 'CookieRunOTF Regular' ;
-    src :url('../fonts/CookieRun Regular.otf');
-    font-style: normal;
-    font-weight: normal;
+    font-family: 'CookieRun';
+    src: url('../fonts/CookieRun Regular.otf');
 }
 
-*{
-    font-family: 'CookieRunOTF Regular', serif;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'CookieRun', sans-serif;
 }
-body{
+
+body {
+    background-color: #111827;
+    color: #f3f4f6;
     text-align: center;
+    padding: 50px;
 }
-h1{
-    text-shadow: 2px 2px 5px lime;
-    font-size: 3em;
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ffffff;
 }
-textarea{
-    margin :10px;
+
+.home {
+    margin-top: 30px;
+}
+
+.move {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.move:hover {
+    background-color: #1d4ed8;
+}
+
+.frm {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.inp,
+.txt {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+.inp::placeholder,
+.txt::placeholder {
+    color: #9ca3af;
+}
+
+.txt {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.btn {
+    background-color: #374151;
+    color: #f3f4f6;
+    border: 1px solid #4b5563;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.2s;
+}
+.move,
+.btn {
+    background: #21262d;
+    color: #f0f6fc;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+}
+.btn:hover {
+    background-color: #4b5563;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #374151;
+    margin: 25px auto;
+    max-width: 600px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
