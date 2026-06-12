@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>방명록 목록</title>
+    <link rel="stylesheet" href="/css/visitor.css" />
+</head>
+<body class="bg-night"> <div class="container"> <h1 class="title">어어..왔니..?</h1>
+    <hr class="divider">
+
+    <table class="v-table" th:if="${vlist}">
+        <tr class="v-row" th:each="vo :${vlist}">
+            <td class="v-name">[[${vo.name}]]</td>
+            <td class="v-date">[[${vo.writeDate}]]</td>
+            <td class="v-memo">[[${vo.memo}]]</td>
+
+            <td class="v-btn-mod">
+                <div class="icon-wrap" th:onclick="|displayUpdateForm(${vo.id})|">
+                    <img src="/img/edit.png" class="v-icon" alt="수정" />
+                    <span>수정</span>
+                </div>
+            </td>
+
+            <td class="v-btn-del">
+                <form method="post" th:action="@{/vdelete}" onsubmit="return confirm('삭제하시겠습니까?')">
+                    <input type="hidden" name="id" th:value="${vo.id}" />
+                    <button type="submit" class="icon-button icon-wrap">
+                        <img src="/img/delete.png" class="v-icon" alt="삭제" />
+                        <span>삭제</span>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <h3 class="msg" th:if="${msg}" th:text="${msg}"></h3>
+    <hr class="divider" />
+
+    <div class="btn-box">
+        <a href="/visitorMain.html"><button class="btn-main">메인페이지로 돌아가기</button></a>
+    </div>
+</div>
+</body>
+</html>

@@ -12,40 +12,55 @@
     font-family: 'CookieRun', sans-serif;
 }
 
+/* ==========================================================================
+   [1] 공통 베이스 스타일 (메인, 작성 폼, 홈 화면 통합 배경 설정)
+   ========================================================================== */
 body {
-    background-color: #111827;
+    background-color: #0f172a;
     color: #f3f4f6;
     text-align: center;
-    padding: 50px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.title {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #ffffff;
-}
-
-.home {
-    margin-top: 30px;
-}
-
-.move {
-    display: inline-block;
+a {
+    color: inherit;
     text-decoration: none;
-    background-color: #2563eb;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 10px;
-    transition: 0.2s;
+    width: 100%;
+    max-width: 450px;
+    display: inline-block;
 }
 
-.move:hover {
-    background-color: #1d4ed8;
+hr {
+    border: none;
+    border-top: 1px solid #334155;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 450px;
+}
+
+/* ==========================================================================
+   [2] 메인 & 작성 폼 & 홈 페이지 요소 스타일 (태그/클래스 변경 없음)
+   ========================================================================== */
+.tit {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .frm {
-    max-width: 500px;
-    margin: 30px auto;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* 내부 마진 제어용 */
 }
 
 .inp,
@@ -53,52 +68,259 @@ body {
     width: 100%;
     padding: 14px;
     margin-bottom: 15px;
-    background-color: #1f2937;
-    border: 1px solid #374151;
-    border-radius: 10px;
-    color: white;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #ffffff;
     font-size: 1rem;
-}
-
-.inp::placeholder,
-.txt::placeholder {
-    color: #9ca3af;
+    text-align: center;
 }
 
 .txt {
     resize: vertical;
-    min-height: 200px;
+    min-height: 180px;
+    text-align: left; /* 본문은 왼쪽부터 정렬 */
+}
+
+.inp::placeholder,
+.txt::placeholder {
+    color: #64748b;
+}
+
+.inp:focus,
+.txt:focus {
+    outline: none;
+    border-color: #38bdf8;
 }
 
 .btn {
-    background-color: #374151;
-    color: #f3f4f6;
-    border: 1px solid #4b5563;
-    padding: 12px 18px;
-    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    background-color: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #334155;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 8px;
     cursor: pointer;
-    margin: 5px;
-    transition: 0.2s;
+    margin-bottom: 10px;
+    transition: all 0.2s;
 }
-.move,
-.btn {
-    background: #21262d;
-    color: #f0f6fc;
-    border: 1px solid #30363d;
-    border-radius: 6px;
-}
+
 .btn:hover {
-    background-color: #4b5563;
+    background-color: #2d3748;
+    border-color: #4a5568;
 }
 
-hr {
+/* 검색 폼 전용 정렬 및 버튼 색상 차별화 */
+form[action="/vsearch"] {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+form[action="/vsearch"] .btn {
+    background-color: #334155;
+    border-color: #475569;
+    margin: 0;
+}
+
+form[action="/vsearch"] .btn:hover {
+    background-color: #475569;
+    border-color: #64748b;
+}
+
+/* 작성 폼 하단 등록/재작성/취소 버튼 정렬 */
+.frm .btn {
+    margin-bottom: 10px;
+}
+
+.frm .btn[type="submit"] {
+    background-color: #2563eb;
+    border-color: #3b82f6;
+}
+
+.frm .btn[type="submit"]:hover {
+    background-color: #1d4ed8;
+}
+
+/* 홈(index.html) 전용 스타일 */
+.home {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 10px;
+}
+
+.move {
+    display: block;
+    width: 100%;
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.move:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* ==========================================================================
+   [3] 방명록 목록 페이지 격리 스타일 (visitorView.html 전용)
+   ========================================================================== */
+body.bg-night {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    padding: 40px 20px;
+    min-height: 100vh;
+    font-family: 'Malgun Gothic', sans-serif;
+}
+
+.bg-night .container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.bg-night .title {
+    text-align: center;
+    font-size: 2rem;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.bg-night .divider {
     border: none;
-    border-top: 1px solid #374151;
-    margin: 25px auto;
-    max-width: 600px;
+    border-top: 1px solid #334155;
+    margin: 20px 0;
+    max-width: 100%;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+.bg-night .v-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    table-layout: fixed;
+}
+
+.bg-night .v-row {
+    border-bottom: 1px solid #1e293b;
+}
+
+.bg-night .v-row:hover {
+    background-color: #1e293b;
+}
+
+.bg-night .v-table td {
+    padding: 12px 10px;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.bg-night .v-name {
+    font-weight: bold;
+    color: #38bdf8;
+    width: 15%;
+    word-break: break-all;
+}
+
+.bg-night .v-date {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    width: 30%;
+}
+
+.bg-night .v-memo {
+    color: #cbd5e1;
+    width: 41%;
+    word-break: break-all;
+}
+
+.bg-night .v-btn-del,
+.bg-night .v-btn-mod {
+    width: 7%;
+    text-align: center;
+}
+
+.bg-night .icon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+}
+
+.bg-night .icon-wrap span {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.bg-night .icon-button {
+    display: inline-flex;
+}
+
+.bg-night .v-icon {
+    width: 24px;
+    height: auto;
+    transition: transform 0.2s, filter 0.2s;
+    filter: invert(1) opacity(0.7);
+}
+
+.bg-night .v-btn-mod .icon-wrap:hover .v-icon {
+    transform: scale(1.15);
+    filter: invert(1) drop-shadow(0 0 6px #fbbf24);
+}
+
+.bg-night .v-btn-mod .icon-wrap:hover span {
+    color: #fbbf24;
+}
+
+.bg-night .v-btn-del .icon-wrap:hover .v-icon {
+    transform: scale(1.15);
+    filter: invert(1) drop-shadow(0 0 6px #f87171);
+}
+
+.bg-night .v-btn-del .icon-wrap:hover span {
+    color: #f87171;
+}
+
+.bg-night .msg {
+    text-align: center;
+    color: #34d399;
+    margin: 15px 0;
+}
+
+.bg-night .btn-box {
+    text-align: center;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.bg-night .btn-main {
+    background-color: #334155;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.bg-night .btn-main:hover {
+    background-color: #475569;
+    border-color: #64748b;
 }
